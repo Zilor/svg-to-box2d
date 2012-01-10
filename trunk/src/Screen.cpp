@@ -30,7 +30,7 @@
 
 Screen::Screen() : sf::RenderWindow(sf::VideoMode(1024,768), "Box2D", sf::Style::Close, sf::ContextSettings(0, 0, 4, 2, 0) )
 {
-    //SetFramerateLimit(60);
+    SetFramerateLimit(60);
 }
 
 int Screen::run (Scene& scene)
@@ -141,7 +141,7 @@ int Screen::run (Scene& scene)
 
 
         // Update the simulation
-        //PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
+        PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
 
         scene.update();
 

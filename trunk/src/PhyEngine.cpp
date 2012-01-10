@@ -36,8 +36,8 @@ PhyEngine::PhyEngine ()
 
 void PhyEngine::init()
 {
-    velocityIterations = 8;
-    positionIterations = 3;
+    velocityIterations = 1;
+    positionIterations = 1;
 }
 
 void PhyEngine::update (float time)
