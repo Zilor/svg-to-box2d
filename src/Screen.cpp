@@ -159,6 +159,9 @@ int Screen::run (Scene& scene)
             Draw(rect);
         }
 
+        std::cout << time.GetElapsedTime() << std::endl;
+
+
         // Reset the timer
         time.Reset();
 
