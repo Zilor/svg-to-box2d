@@ -141,7 +141,7 @@ int Screen::run (Scene& scene)
 
 
         // Update the simulation
-        PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
+        //PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
 
         scene.update();
 
