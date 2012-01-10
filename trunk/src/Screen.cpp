@@ -50,6 +50,13 @@ int Screen::run (Scene& scene)
 
     int shape = 0;
 
+    std::string info = "C to create a circle  \nB to Create a box \nMouse wheel to increase or decrease the object size (creation mode) \
+                        \nEsc to leave the creation mode \n\nMousewheel to zomm-in or zoom-out (free mode) \nArrows to move the camera";
+
+    sf::Text text(info);
+    text.SetPosition(25.f, 25.f);
+    text.SetScale(0.5, 0.5);
+
     sf::Event event;
 
     sf::Clock time;
@@ -142,9 +149,8 @@ int Screen::run (Scene& scene)
 
         // Update the simulation
         //PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
-        std::cout << time.GetElapsedTime() << std::endl;
         PhyEngine::getInstance()->update(1.f / 60.f);
-        std::cout << time.GetElapsedTime() << std::endl;
+        //std::cout << time.GetElapsedTime() << std::endl;
 
         scene.update();
 
@@ -161,6 +167,8 @@ int Screen::run (Scene& scene)
             rect.SetPosition(mPosition.x, mPosition.y);
             Draw(rect);
         }
+
+        Draw(text);
 
 
         // Reset the timer
