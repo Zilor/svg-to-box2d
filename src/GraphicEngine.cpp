@@ -102,7 +102,7 @@ sf::Drawable* GraphicEngine::addStaticPolyline(std::vector<std::pair<float,float
 
     int size = vpCoord.size();
 
-    //polyline->AddPoint(vpCoord[0].first , vpCoord[0].second, sf::Color(255,255,255,0));
+    polyline->AddPoint(vpCoord[0].first , vpCoord[0].second, sf::Color(255,255,255,0));
     polyline->AddPoint(vpCoord[0].first , vpCoord[0].second, sf::Color(255,255,255,255));
 
     for (int i = 0; i < size; ++i)
@@ -127,7 +127,7 @@ sf::Drawable* GraphicEngine::addStaticPolyline(std::vector<std::pair<float,float
     }
 
     polyline->AddPoint(vpCoord[size].first , vpCoord[size].second, sf::Color(255,255,255,255));
-    //polyline->AddPoint(vpCoord[size].first , vpCoord[size].second, sf::Color(255,255,255,0));
+    polyline->AddPoint(vpCoord[size].first , vpCoord[size].second, sf::Color(255,255,255,0));
     polyline->EnableFill(false);
     polyline->SetOutlineThickness(2.0f);
     /*for (int i = vpCoord.size() - 1; i >= 0; --i)
