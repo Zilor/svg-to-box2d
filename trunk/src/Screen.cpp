@@ -142,7 +142,9 @@ int Screen::run (Scene& scene)
 
         // Update the simulation
         //PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
+        std::cout << time.GetElapsedTime() << std::endl;
         PhyEngine::getInstance()->update(1.f / 60.f);
+        std::cout << time.GetElapsedTime() << std::endl;
 
         scene.update();
 
@@ -159,8 +161,6 @@ int Screen::run (Scene& scene)
             rect.SetPosition(mPosition.x, mPosition.y);
             Draw(rect);
         }
-
-        std::cout << time.GetElapsedTime() << std::endl;
 
 
         // Reset the timer
