@@ -44,7 +44,7 @@ void PhyEngine::update (float time)
 {
     // Update the world
     m_b2World->Step(time, velocityIterations, positionIterations);
-    m_b2World->ClearForces();
+    //m_b2World->ClearForces();
 }
 
 b2Body* PhyEngine::addBox(float xPosition, float yPosition, float xSize, float ySize)
