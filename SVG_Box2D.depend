@@ -1,0 +1,508 @@
+# depslib dependency file v1.0
+1326143039 source:f:\developpement\travaux\prog\svg_box2d\src\phyengine.cpp
+	"../include/PhyEngine.hpp"
+
+1326104661 f:\developpement\travaux\prog\svg_box2d\include\phyengine.hpp
+	"../Constants.hpp"
+	"Singleton.hpp"
+
+1326102672 f:\developpement\travaux\prog\svg_box2d\constants.hpp
+	"dependency/tinyxml/tinyxml.h"
+	"Box2D.h"
+	<SFML/System.hpp>
+	<SFML/Window.hpp>
+	<SFML/Graphics.hpp>
+	<iostream>
+	<vector>
+	<algorithm>
+	"include/PhyEngine.hpp"
+	"include/GraphicEngine.hpp"
+	"include/SVGParser.hpp"
+
+1299511837 f:\developpement\travaux\prog\svg_box2d\dependency\tinyxml\tinyxml.h
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<string>
+	<iostream>
+	<sstream>
+	"tinystr.h"
+
+1299511837 f:\developpement\travaux\prog\svg_box2d\dependency\tinyxml\tinystr.h
+	<assert.h>
+	<string.h>
+
+1315006740 f:\developpement\box2d_v2.2.1\box2d\box2d.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Common/b2Draw.h>
+	<Box2D/Common/b2Timer.h>
+	<Box2D/Collision/Shapes/b2CircleShape.h>
+	<Box2D/Collision/Shapes/b2EdgeShape.h>
+	<Box2D/Collision/Shapes/b2ChainShape.h>
+	<Box2D/Collision/Shapes/b2PolygonShape.h>
+	<Box2D/Collision/b2BroadPhase.h>
+	<Box2D/Collision/b2Distance.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<Box2D/Collision/b2TimeOfImpact.h>
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Dynamics/b2Fixture.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+	<Box2D/Dynamics/b2World.h>
+	<Box2D/Dynamics/Contacts/b2Contact.h>
+	<Box2D/Dynamics/Joints/b2DistanceJoint.h>
+	<Box2D/Dynamics/Joints/b2FrictionJoint.h>
+	<Box2D/Dynamics/Joints/b2GearJoint.h>
+	<Box2D/Dynamics/Joints/b2WheelJoint.h>
+	<Box2D/Dynamics/Joints/b2MouseJoint.h>
+	<Box2D/Dynamics/Joints/b2PrismaticJoint.h>
+	<Box2D/Dynamics/Joints/b2PulleyJoint.h>
+	<Box2D/Dynamics/Joints/b2RevoluteJoint.h>
+	<Box2D/Dynamics/Joints/b2RopeJoint.h>
+	<Box2D/Dynamics/Joints/b2WeldJoint.h>
+
+1315010962 f:\developpement\box2d_v2.2.1\box2d\common\b2settings.h
+	<cassert>
+	<cmath>
+
+1301218302 f:\developpement\box2d_v2.2.1\box2d\common\b2draw.h
+	<Box2D/Common/b2Math.h>
+
+1315068482 f:\developpement\box2d_v2.2.1\box2d\common\b2math.h
+	<Box2D/Common/b2Settings.h>
+	<cmath>
+	<cfloat>
+	<cstddef>
+	<limits>
+
+1315777596 f:\developpement\box2d_v2.2.1\box2d\common\b2timer.h
+	<Box2D/Common/b2Settings.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\collision\shapes\b2circleshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1313948994 f:\developpement\box2d_v2.2.1\box2d\collision\shapes\b2shape.h
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\common\b2blockallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1307272962 f:\developpement\box2d_v2.2.1\box2d\collision\b2collision.h
+	<Box2D/Common/b2Math.h>
+	<climits>
+
+1314827588 f:\developpement\box2d_v2.2.1\box2d\collision\shapes\b2edgeshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1314826944 f:\developpement\box2d_v2.2.1\box2d\collision\shapes\b2chainshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\collision\shapes\b2polygonshape.h
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1301228604 f:\developpement\box2d_v2.2.1\box2d\collision\b2broadphase.h
+	<Box2D/Common/b2Settings.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/b2DynamicTree.h>
+	<algorithm>
+
+1308955590 f:\developpement\box2d_v2.2.1\box2d\collision\b2dynamictree.h
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Common/b2GrowableStack.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\common\b2growablestack.h
+	<Box2D/Common/b2Settings.h>
+	<cstring>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\collision\b2distance.h
+	<Box2D/Common/b2Math.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\collision\b2timeofimpact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Distance.h>
+
+1315055544 f:\developpement\box2d_v2.2.1\box2d\dynamics\b2body.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<memory>
+
+1315039942 f:\developpement\box2d_v2.2.1\box2d\dynamics\b2fixture.h
+	<Box2D/Dynamics/b2Body.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+
+1314041202 f:\developpement\box2d_v2.2.1\box2d\dynamics\b2worldcallbacks.h
+	<Box2D/Common/b2Settings.h>
+
+1315776732 f:\developpement\box2d_v2.2.1\box2d\dynamics\b2timestep.h
+	<Box2D/Common/b2Math.h>
+
+1315141598 f:\developpement\box2d_v2.2.1\box2d\dynamics\b2world.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Common/b2BlockAllocator.h>
+	<Box2D/Common/b2StackAllocator.h>
+	<Box2D/Dynamics/b2ContactManager.h>
+	<Box2D/Dynamics/b2WorldCallbacks.h>
+	<Box2D/Dynamics/b2TimeStep.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\common\b2stackallocator.h
+	<Box2D/Common/b2Settings.h>
+
+1300958220 f:\developpement\box2d_v2.2.1\box2d\dynamics\b2contactmanager.h
+	<Box2D/Collision/b2BroadPhase.h>
+
+1305754420 f:\developpement\box2d_v2.2.1\box2d\dynamics\contacts\b2contact.h
+	<Box2D/Common/b2Math.h>
+	<Box2D/Collision/b2Collision.h>
+	<Box2D/Collision/Shapes/b2Shape.h>
+	<Box2D/Dynamics/b2Fixture.h>
+
+1315130584 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2distancejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315142800 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2joint.h
+	<Box2D/Common/b2Math.h>
+
+1315141878 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2frictionjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315142134 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2gearjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315142752 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2wheeljoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315142812 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2mousejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315333528 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2prismaticjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315142520 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2pulleyjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315139974 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2revolutejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315161814 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2ropejoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1315138264 f:\developpement\box2d_v2.2.1\box2d\dynamics\joints\b2weldjoint.h
+	<Box2D/Dynamics/Joints/b2Joint.h>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Err.hpp>
+	<SFML/System/InputStream.hpp>
+	<SFML/System/Lock.hpp>
+	<SFML/System/Mutex.hpp>
+	<SFML/System/Sleep.hpp>
+	<SFML/System/String.hpp>
+	<SFML/System/Thread.hpp>
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.hpp>
+	<SFML/System/Utf.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\config.hpp
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\clock.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\err.hpp
+	<SFML/Config.hpp>
+	<ostream>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\inputstream.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\lock.hpp
+	<SFML/System/NonCopyable.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\noncopyable.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\mutex.hpp
+	<SFML/Config.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\sleep.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\string.hpp
+	<SFML/Config.hpp>
+	<locale>
+	<string>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\thread.hpp
+	<SFML/Config.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+	<SFML/System/Thread.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\thread.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\threadlocal.hpp
+	<SFML/Config.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<cstdlib>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\threadlocalptr.hpp
+	<SFML/System/ThreadLocal.hpp>
+	<SFML/System/ThreadLocalPtr.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\threadlocalptr.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\utf.hpp
+	<SFML/Config.hpp>
+	<algorithm>
+	<locale>
+	<string>
+	<cstdlib>
+	<SFML/System/Utf.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\utf.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\vector2.hpp
+	<SFML/System/Vector2.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\vector2.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\vector3.hpp
+	<SFML/System/Vector3.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\system\vector3.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window.hpp
+	<SFML/System.hpp>
+	<SFML/Window/Context.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/Event.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/Window.hpp>
+	<SFML/Window/WindowStyle.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\context.hpp
+	<SFML/Config.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/System/NonCopyable.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\glresource.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\contextsettings.hpp
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\event.hpp
+	<SFML/Config.hpp>
+	<SFML/Window/Joystick.hpp>
+	<SFML/Window/Keyboard.hpp>
+	<SFML/Window/Mouse.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\joystick.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\keyboard.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\mouse.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Vector2.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\videomode.hpp
+	<SFML/Config.hpp>
+	<vector>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\window.hpp
+	<SFML/Window/ContextSettings.hpp>
+	<SFML/Window/VideoMode.hpp>
+	<SFML/Window/WindowHandle.hpp>
+	<SFML/Window/WindowStyle.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/Clock.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<string>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\windowhandle.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\window\windowstyle.hpp
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics.hpp
+	<SFML/Window.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Graphics/Renderer.hpp>
+	<SFML/Graphics/RenderTexture.hpp>
+	<SFML/Graphics/RenderWindow.hpp>
+	<SFML/Graphics/Shader.hpp>
+	<SFML/Graphics/Shape.hpp>
+	<SFML/Graphics/Sprite.hpp>
+	<SFML/Graphics/Text.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/View.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\color.hpp
+	<SFML/Config.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\font.hpp
+	<SFML/System/Vector2.hpp>
+	<SFML/System/String.hpp>
+	<SFML/Graphics/Glyph.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<map>
+	<string>
+	<vector>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\glyph.hpp
+	<SFML/Config.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\rect.hpp
+	<SFML/System/Vector2.hpp>
+	<algorithm>
+	<SFML/Graphics/Rect.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\rect.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\texture.hpp
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/GlResource.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\image.hpp
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+	<vector>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\renderer.hpp
+	<SFML/Config.hpp>
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Matrix3.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\drawable.hpp
+	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Matrix3.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\matrix3.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<cmath>
+	<SFML/Graphics/Matrix3.inl>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\matrix3.inl
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\rendertexture.hpp
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Graphics/RenderTarget.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\rendertarget.hpp
+	<SFML/System/NonCopyable.hpp>
+	<SFML/Graphics/Color.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Renderer.hpp>
+	<SFML/Graphics/View.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\view.hpp
+	<SFML/Config.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<SFML/Graphics/Matrix3.hpp>
+	<SFML/System/Vector2.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\renderwindow.hpp
+	<SFML/Graphics/RenderTarget.hpp>
+	<SFML/Graphics/Image.hpp>
+	<SFML/Window/Window.hpp>
+	<string>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\shader.hpp
+	<SFML/Config.hpp>
+	<SFML/Graphics/Texture.hpp>
+	<SFML/Window/GlResource.hpp>
+	<SFML/System/Vector2.hpp>
+	<SFML/System/Vector3.hpp>
+	<map>
+	<string>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\shape.hpp
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/System/Vector2.hpp>
+	<vector>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\sprite.hpp
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Rect.hpp>
+
+1320866028 f:\developpement\sfml_2.0_snapshot\include\sfml\graphics\text.hpp
+	<SFML/System/String.hpp>
+	<SFML/Graphics/Drawable.hpp>
+	<SFML/Graphics/Font.hpp>
+	<SFML/Graphics/Rect.hpp>
+	<string>
+
+1323886194 f:\developpement\travaux\prog\svg_box2d\include\singleton.hpp
+	"../Constants.hpp"
+	"Singleton.inl"
+
+1323886325 f:\developpement\travaux\prog\svg_box2d\include\singleton.inl
+
+1326121239 source:f:\developpement\travaux\prog\svg_box2d\src\svgparser.cpp
+	"../include/SVGParser.hpp"
+
+1325327051 f:\developpement\travaux\prog\svg_box2d\include\svgparser.hpp
+	"../Constants.hpp"
+	"Singleton.hpp"
+
+1325327051 source:f:\developpement\travaux\prog\svg_box2d\main.cpp
+	"include/SVGParser.hpp"
+	"Constants.hpp"
+	"include/Screen.hpp"
+
+1326123626 source:f:\developpement\travaux\prog\svg_box2d\src\screen.cpp
+	"../include/Screen.hpp"
+	"../include/Object.hpp"
+
+1325327051 f:\developpement\travaux\prog\svg_box2d\include\screen.hpp
+	"../Constants.hpp"
+	"Scene.hpp"
+
+1326103803 f:\developpement\travaux\prog\svg_box2d\include\scene.hpp
+	"../Constants.hpp"
+
+1326121239 source:f:\developpement\travaux\prog\svg_box2d\src\scene.cpp
+	"../include/Scene.hpp"
+	"../include/Object.hpp"
+
+1325327051 source:f:\developpement\travaux\prog\svg_box2d\src\object.cpp
+	"../include/Object.hpp"
+	"../include/Screen.hpp"
+
+1324922118 f:\developpement\travaux\prog\svg_box2d\include\object.hpp
+	"../Constants.hpp"
+
+1326142234 source:f:\developpement\travaux\prog\svg_box2d\src\graphicengine.cpp
+	"../include/GraphicEngine.hpp"
+	"../include/Screen.hpp"
+
+1326103820 f:\developpement\travaux\prog\svg_box2d\include\graphicengine.hpp
+	"../Constants.hpp"
+	"Singleton.hpp"
+

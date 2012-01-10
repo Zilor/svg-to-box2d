@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SVG_Box2D" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="SVG_Box2D" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="SVG_Box2D" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add option="-DSFML_STATIC" />
+			<Add directory="F:\Developpement\Box2D_v2.2.1" />
+			<Add directory="F:\Developpement\SFML_2.0_snapshot\include" />
+			<Add directory="F:\Developpement\Box2D_v2.2.1\Box2D" />
+		</Compiler>
+		<Linker>
+			<Add option="-lsfml-graphics-s" />
+			<Add option="-lsfml-window-s" />
+			<Add option="-lsfml-system-s" />
+			<Add option="-static" />
+			<Add option="-ltinyxml" />
+			<Add library="F:\Developpement\Box2D_v2.2.1\lib\libbox2d.a" />
+			<Add directory="F:\Developpement\SFML_2.0_snapshot\lib" />
+			<Add directory="F:\Developpement\tinyxml" />
+		</Linker>
+		<Unit filename="Constants.hpp" />
+		<Unit filename="include\GraphicEngine.hpp" />
+		<Unit filename="include\Object.hpp" />
+		<Unit filename="include\PhyEngine.hpp" />
+		<Unit filename="include\SVGParser.hpp" />
+		<Unit filename="include\Scene.hpp" />
+		<Unit filename="include\Screen.hpp" />
+		<Unit filename="include\Singleton.hpp" />
+		<Unit filename="include\Singleton.inl" />
+		<Unit filename="main.cpp" />
+		<Unit filename="src\GraphicEngine.cpp" />
+		<Unit filename="src\Object.cpp" />
+		<Unit filename="src\PhyEngine.cpp" />
+		<Unit filename="src\SVGParser.cpp" />
+		<Unit filename="src\Scene.cpp" />
+		<Unit filename="src\Screen.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
