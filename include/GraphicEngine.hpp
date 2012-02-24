@@ -28,10 +28,22 @@
 #ifndef GRAPHICENGINE_HPP_INCLUDED
 #define GRAPHICENGINE_HPP_INCLUDED
 
+/*!
+*   \file GraphicEngine.hpp
+*   \brief The graphic engine header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../Constants.hpp"
 #include "Singleton.hpp"
 
 class Screen;
+
+/*!
+*   \class GraphicEngine
+*   \brief The graphic engine which manage all the drawable objects
+*/
 
 class GraphicEngine : public Singleton<GraphicEngine>
 {
@@ -64,12 +76,44 @@ class GraphicEngine : public Singleton<GraphicEngine>
         */
         sf::Drawable* addStaticBoxDrawable(float xPosition, float yPosition, float xSize, float ySize);
 
+        /*!
+        *   \brief Create a drawable circle.
+        *
+        *   \param xPosition The x position of the circle
+        *   \param yPosition The y position of the circle
+        *   \param radius The radius of the circle
+        *
+        *   \return A pointer on a sf::Drawable object
+        */
         sf::Drawable* addCircleDrawable(float xPosition, float yPosition, float radius);
 
+        /*!
+        *   \brief Create a drawable edge.
+        *
+        *   \param xFirstPosition The x position of the first point composing the edge
+        *   \param yFirstPosition The y position of the first point composing the edge
+        *   \param xSecondPosition The x position of the second point composing the edge
+        *   \param ySecondPosition The y position of the second point composing the edge
+        *
+        *   \return A pointer on a sf::Drawable object
+        */
         sf::Drawable* addStaticEdge(float xFirstPosition, float yFirstPosition, float xSecondPosition, float ySecondPosition);
 
+        /*!
+        *   \brief Create a drawable polyline. (The function actually create a polygon and only draw
+        *                                        the interesting edges)
+        *
+        *   \param vpCoord A vector of X and Y coordinates
+        *
+        *   \return A pointer on a sf::Drawable object
+        */
         sf::Drawable* addStaticPolyline(std::vector<std::pair<float,float> > vpCoord);
 
+        /*!
+        *   \brief Draw all the drawable objects
+        *
+        *   \param screen The RenderWindow used to draw the objects
+        */
         void draw (Screen& screen);
 
 
@@ -79,7 +123,7 @@ class GraphicEngine : public Singleton<GraphicEngine>
 
         ~GraphicEngine ();
 
-        std::vector<sf::Drawable*> m_vDrawable;
+        std::vector<sf::Drawable*> m_vDrawable; //<! A vector of pointer to drawable objects
 };
 
 #endif // GRAPHICENGINE_HPP_INCLUDED

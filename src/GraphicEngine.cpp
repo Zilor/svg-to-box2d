@@ -132,26 +132,6 @@ sf::Drawable* GraphicEngine::addStaticPolyline(std::vector<std::pair<float,float
     //polyline->AddPoint(vpCoord[size].first , vpCoord[size].second, sf::Color(255,255,255,0));
     polyline->EnableFill(false);
     polyline->SetOutlineThickness(2.0f);
-    /*for (int i = vpCoord.size() - 1; i >= 0; --i)
-    {
-        sf::Vector2f p1(vpCoord[i].first, vpCoord[i].second);
-        sf::Vector2f p2(vpCoord[i-1].first, vpCoord[i-1].second);
-
-        /*sf::Vector2f normal;
-        //Compute normal
-        normal.x = p1.y - p2.y;
-        normal.y = p2.x - p1.x;
-        float len = std::sqrt(normal.x * normal.x + normal.y * normal.y);
-        normal.x /= len;
-        normal.y /= len;
-
-        normal *= 2.f;
-
-        polyline->AddPoint(p1 , sf::Color(0,255,255,100));
-        //if (i == 2)
-            //polyline->AddPoint(p2 , sf::Color(255,255,255,100));
-            std::cout << p1.x << "   " << p1.y << std::endl;
-    }*/
 
     m_vDrawable.push_back(polyline);
 
