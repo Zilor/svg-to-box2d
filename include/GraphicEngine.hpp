@@ -123,7 +123,7 @@ class GraphicEngine : public Singleton<GraphicEngine>
 
         ~GraphicEngine ();
 
-        std::vector<sf::Drawable*> m_vDrawable; //<! A vector of pointer to drawable objects
+        std::vector<sf::Drawable*> m_vDrawable; //!< A vector of pointer to drawable objects
 };
 
 #endif // GRAPHICENGINE_HPP_INCLUDED

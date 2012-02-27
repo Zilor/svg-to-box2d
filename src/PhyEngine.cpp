@@ -31,55 +31,59 @@ PhyEngine::PhyEngine ()
 {
     b2Vec2 gravity(0.0f, 9.8f);                     // Gravity of the world
     m_b2World = new b2World(gravity);       // v2.2.1
-    m_b2World->SetAllowSleeping(true);   // Stop to calculate movement for not moving objects
+    m_b2World->SetAllowSleeping(true);   // Stop to calculate movement for non-moving objects
 }
 
 void PhyEngine::init()
 {
-    velocityIterations = 1;
-    positionIterations = 1;
+    velocityIterations = 8;     // If your machine is powerfull enough, this is the best configuration
+    positionIterations = 3;
 }
 
 void PhyEngine::update (float time)
 {
     // Update the world
     m_b2World->Step(time, velocityIterations, positionIterations);
-    //m_b2World->ClearForces();
+    m_b2World->ClearForces();
 }
 
 b2Body* PhyEngine::addBox(float xPosition, float yPosition, float xSize, float ySize)
 {
 	// Creation of a dynamic rectangle
-    b2BodyDef bodyDef;                          // Declaration of the body
-    bodyDef.type = b2_dynamicBody;              // Set the body as a dynamic one
-    bodyDef.position.Set(xPosition / 100.f, yPosition / 100.f);
-    bodyDef.angle = 0.f;
-    b2Body* body = m_b2World->CreateBody(&bodyDef);  // We ask to the body factory to create it
+    b2BodyDef bodyDef;                              // Declaration of the body
+    bodyDef.type = b2_dynamicBody;                  // Set the body as a dynamic one
+    bodyDef.position.Set(xPosition / 100.f,
+                         yPosition / 100.f);        // Set the body position
+    bodyDef.angle = 0.f;                            // Set the body angle
+    b2Body* body = m_b2World->CreateBody(&bodyDef); // We ask to the body factory to create it
 
-    b2PolygonShape dynamicBox;                  // Declaration of the shape
-    dynamicBox.SetAsBox((xSize / 200.f) - 0.01, (ySize / 200.f) - 0.01);
+    b2PolygonShape dynamicBox;                      // Declaration of the shape
+    dynamicBox.SetAsBox((xSize / 200.f) - 0.01,
+                        (ySize / 200.f) - 0.01);    // Set the size and the shape as a box
 
-    b2FixtureDef fixtureDef;                    // We add some fixtures to the body
-    fixtureDef.shape = &dynamicBox;
-    fixtureDef.density = 1.0f;
-    fixtureDef.friction = 0.3f;
-    fixtureDef.restitution = 0.3f;
+    b2FixtureDef fixtureDef;                        // We create a new fixture for the body
+    fixtureDef.shape = &dynamicBox;                 // We attach the shape of the body to the fixture
+    fixtureDef.density = 1.0f;                      // We set the density of the shape
+    fixtureDef.friction = 0.3f;                     // We set the friction of the shape
+    fixtureDef.restitution = 0.3f;                  // We set the restitution of the shape
 
-    body->CreateFixture(&fixtureDef);           // We link the fixture to the body
+    body->CreateFixture(&fixtureDef);               // We link the fixture to the body
 
     return body;
 }
 
 b2Body* PhyEngine::addStaticBox(float xPosition, float yPosition, float xSize, float ySize)
 {
-	// Création d'un objet dynamique : un simple cube qui tombe
+	// Creation of a static rectangle
     b2BodyDef bodyDef;                          // On déclare le body
-    bodyDef.position.Set(xPosition / 100.f, yPosition / 100.f);           // Position du corps
+    bodyDef.position.Set(xPosition / 100.f,
+                         yPosition / 100.f);           // Position du corps
     bodyDef.angle = 0.f;                        // On donne un peu d'angle pour la simulation
     b2Body* body = m_b2World->CreateBody(&bodyDef);  // On demande au body factory de créer le body
 
     b2PolygonShape dynamicBox;                  // On déclare le shape du body
-    dynamicBox.SetAsBox((xSize / 200.f) - 0.01, (ySize / 200.f) - 0.01);            // On définit la taille et la forme en cube du shape
+    dynamicBox.SetAsBox((xSize / 200.f) - 0.01,
+                        (ySize / 200.f) - 0.01);            // On définit la taille et la forme en cube du shape
 
     b2FixtureDef fixtureDef;                    // On déclaire la fixture du body
     fixtureDef.shape = &dynamicBox;             // On applique le shape à la fixture
@@ -97,7 +101,8 @@ b2Body* PhyEngine::addCircle (float xPosition, float yPosition, float radius)
     // Création d'un objet dynamique : un simple cube qui tombe
     b2BodyDef bodyDef;                          // On déclare le body
     bodyDef.type = b2_dynamicBody;              // Le corps est dynamique
-    bodyDef.position.Set(xPosition / 100.f, yPosition / 100.f);           // Position du corps
+    bodyDef.position.Set(xPosition / 100.f,
+                         yPosition / 100.f);           // Position du corps
     bodyDef.angle = 0.f;                        // On donne un peu d'angle pour la simulation
     b2Body* body = m_b2World->CreateBody(&bodyDef);  // On demande au body factory de créer le body
 
@@ -127,7 +132,8 @@ b2Body* PhyEngine::addChainShape (std::vector<std::pair<float,float> > vpCoord)
     b2Vec2 vCoord[size];
     for (int i = 0; i < size; ++i)
     {
-        vCoord[i].Set(vpCoord[i].first / 100.f, vpCoord[i].second / 100.f);
+        vCoord[i].Set(vpCoord[i].first / 100.f,
+                      vpCoord[i].second / 100.f);
     }
 
     // Création d'un objet dynamique : un simple cube qui tombe
