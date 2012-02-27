@@ -28,8 +28,21 @@
 #ifndef PHYENGINE_HPP_INCLUDED
 #define PHYENGINE_HPP_INCLUDED
 
+/*!
+*   \file PhyEngine.hpp
+*   \brief The physic engine header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../Constants.hpp"
 #include "Singleton.hpp"
+
+/*!
+*   \class PhyEngine
+*   \brief The physic engine which simulate the physical world
+*           and manage all the physical objects
+*/
 
 class PhyEngine : public Singleton<PhyEngine>
 {
@@ -37,27 +50,86 @@ class PhyEngine : public Singleton<PhyEngine>
 
     public :
 
+        /*!
+        *   \brief Initialize the PhyEngine
+        */
         void init ();
 
+        /*!
+        *   \brief Update the world
+        *
+        *   \param time The time elapsed since the last update
+        */
         void update (float time);
 
+        /*!
+        *   \brief Create a physical dynamic box
+        *
+        *   \param xPosition The x position of the box
+        *   \param yPosition The y position of the box
+        *   \param xSize The width of the box
+        *   \param ySize The height of the box
+        *
+        *   \return A pointer on a b2Body object
+        */
         b2Body* addBox (float xPosition, float yPosition, float xSize, float ySize);
 
+        /*!
+        *   \brief Create a physical static box
+        *
+        *   \param xPosition The x position of the box
+        *   \param yPosition The y position of the box
+        *   \param xSize The width of the box
+        *   \param ySize The height of the box
+        *
+        *   \return A pointer on a b2Body object
+        */
         b2Body* addStaticBox (float xPosition, float yPosition, float xSize, float ySize);
 
+        /*!
+        *   \brief Create a physical dynamic circle
+        *
+        *   \param xPosition The x position of the circle
+        *   \param yPosition The y position of the circle
+        *   \param radius The radius of the circle
+        *
+        *   \return A pointer on a b2Body object
+        */
         b2Body* addCircle (float xPosition, float yPosition, float radius);
 
+        /*!
+        *   \brief Create a physical static edge (not implemented yet)
+        *
+        *   \param xFirstPosition The x position of the first point of the edge
+        *   \param yFirstPosition The y position of the first point of the edge
+        *   \param xSecondPosition The x position of the second point of the edge
+        *   \param ySecondPosition The y position of the second point of the edge
+        *
+        *   \return A pointer on a b2Body object
+        */
         b2Body* addEdge (float xFirstPosition, float yFirstPosition, float xSecondPosition, float ySecondPosition);
 
+        /*!
+        *   \brief Create a physical static chain (multiple edges)
+        *
+        *   \param vpCoord A vector of pair of coordinates for each point of the chain
+        *
+        *   \return A pointer on a b2Body object
+        */
         b2Body* addChainShape (std::vector<std::pair<float,float> > vpCoord);
 
+        /*!
+        *   \brief Get a pointer of the current world
+        *
+        *   \return A pointer on a b2World
+        */
         b2World* getWorld();
 
     protected :
 
-        PhyEngine ();
+        PhyEngine ();               //!< Constructor
 
-        b2World* m_b2World;
+        b2World* m_b2World;         //!< A Box2D world which will contain the physical scene
 
         int velocityIterations;
         int positionIterations;
