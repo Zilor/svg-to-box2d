@@ -32,28 +32,20 @@
 int main()
 {
     std::string sAnswer = "";
+    std::cout << "Which SVG file do you want to load ?" << std::endl;
+    std::cin >> sAnswer;
 
-    Screen screen;
-
-    while (true)
+    while (sAnswer != "/quit")
     {
+        Screen screen;
+        Scene scene;
+        scene.createFromFile(sAnswer);
+
+        screen.run(scene);
+
         std::cout << "Which SVG file do you want to load ?" << std::endl;
         std::cin >> sAnswer;
-
-        if (sAnswer != "/quit")
-        {
-            Scene scene;
-            scene.createFromFile(sAnswer);
-
-            screen.run(scene);
-        }
-        else
-        {
-            return EXIT_SUCCESS;
-        }
-
-
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
