@@ -37,11 +37,16 @@ int main()
 
     while (sAnswer != "/quit")
     {
+        PhyEngine::getInstance()->init();
+
         Screen screen;
         Scene scene;
         scene.createFromFile(sAnswer);
 
         screen.run(scene);
+
+        GraphicEngine::getInstance()->clear();
+        PhyEngine::getInstance()->clear();
 
         std::cout << "Which SVG file do you want to load ?" << std::endl;
         std::cin >> sAnswer;

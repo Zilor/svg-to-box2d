@@ -124,7 +124,7 @@ void Scene::addRect(float xPosition, float yPosition, float xSize, float ySize)
                     );
 
     // We ask to the graphic engine to create a drawable shape
-    object->SetDrawable(GraphicEngine::getInstance()->addBoxDrawable(
+    object->SetShape(GraphicEngine::getInstance()->addBoxDrawable(
                                                                  xPosition,
                                                                  yPosition,
                                                                  xSize,
@@ -145,7 +145,7 @@ void Scene::addStaticRect(float xPosition, float yPosition, float xSize, float y
                                                      ySize)
                     );
 
-    object->SetDrawable(GraphicEngine::getInstance()->addStaticBoxDrawable(
+    object->SetShape(GraphicEngine::getInstance()->addStaticBoxDrawable(
                                                                  xPosition,
                                                                  yPosition,
                                                                  xSize,
@@ -164,7 +164,7 @@ void Scene::addCircle (float xPosition, float yPosition, float radius)
                                                      radius)
                     );
 
-    object->SetDrawable(GraphicEngine::getInstance()->addCircleDrawable(
+    object->SetShape(GraphicEngine::getInstance()->addCircleDrawable(
                                                                  xPosition,
                                                                  yPosition,
                                                                  radius)
@@ -178,7 +178,7 @@ void Scene::addLine (std::vector<std::pair<float, float> > vpCoord)
 {
     Object* object = new Object();
     object->SetBody(PhyEngine::getInstance()->addChainShape(vpCoord));
-    object->SetDrawable(GraphicEngine::getInstance()->addStaticPolyline(vpCoord));
+    object->SetShape(GraphicEngine::getInstance()->addStaticPolyline(vpCoord));
 
     m_vObject.push_back(object);
 }

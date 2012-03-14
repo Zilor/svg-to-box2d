@@ -30,7 +30,7 @@
 
 Screen::Screen() : sf::RenderWindow(sf::VideoMode(1024,768), "Box2D", sf::Style::Close, sf::ContextSettings(0, 0, 4, 2, 0) )
 {
-    SetFramerateLimit(60);
+    setFramerateLimit(60);
 }
 
 int Screen::run (Scene& scene)
@@ -43,10 +43,15 @@ int Screen::run (Scene& scene)
     int circleSize = 25;
     int rectSize = 50;
 
-    sf::Shape circle = sf::Shape::Circle(0, 0, circleSize, sf::Color(255,0,0,130));
+    sf::CircleShape circle;
+    circle.setRadius(circleSize);
+    circle.setFillColor(sf::Color(255,0,0,130));
 
-    sf::Shape rect = sf::Shape::Rectangle(0,0, rectSize, rectSize, sf::Color(0,0,255,130));
-    rect.SetOrigin(rectSize / 2.f, rectSize / 2.f);
+    sf::RectangleShape rect;
+    rect.setSize(sf::Vector2f(rectSize, rectSize));
+    rect.setFillColor(sf::Color(0,0,255,130));
+
+    rect.setOrigin(rectSize / 2.f, rectSize / 2.f);
 
     int shape = 0;
 
@@ -54,92 +59,92 @@ int Screen::run (Scene& scene)
                         \nEsc to leave the creation mode \n\nMousewheel to zomm-in or zoom-out (free mode) \nArrows to move the camera";
 
     sf::Text text(info);
-    text.SetPosition(25.f, 25.f);
-    text.SetScale(0.5, 0.5);
+    text.setPosition(25.f, 25.f);
+    text.setScale(0.5, 0.5);
 
     sf::Event event;
 
     sf::Clock time;
-    while (IsOpened())
+    while (isOpen())
     {
         // Clear the render window
-        Clear();
+        clear();
 
-        SetView(*view);
+        setView(*view);
 
-        sf::Vector2f mPosition = ConvertCoords(sf::Mouse::GetPosition(*this).x, sf::Mouse::GetPosition(*this).y, *view);
+        sf::Vector2f mPosition = convertCoords(sf::Mouse::getPosition(*this).x, sf::Mouse::getPosition(*this).y, *view);
 
         // Get the keyboard and mouse events
-        while (PollEvent(event))
+        while (pollEvent(event))
         {
-            if (event.Type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed)
             {
-                Close();
+                close();
             }
-            if (sf::Mouse::IsButtonPressed(sf::Mouse::Left) && shape == 1)
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && shape == 1)
             {
                 scene.addCircle(mPosition.x, mPosition.y, circleSize);
             }
-            else if (sf::Mouse::IsButtonPressed(sf::Mouse::Left) && shape == 2)
+            else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && shape == 2)
             {
                 scene.addRect(mPosition.x, mPosition.y, rectSize, rectSize);
             }
-            if (event.Type == sf::Event::KeyPressed)
+            if (event.type == sf::Event::KeyPressed)
             {
-                if (event.Key.Code == sf::Keyboard::Up)     view->Move(0, -50);
-                if (event.Key.Code == sf::Keyboard::Down)   view->Move(0, 50);
-                if (event.Key.Code == sf::Keyboard::Left)   view->Move(-50, 0);
-                if (event.Key.Code == sf::Keyboard::Right)  view->Move(50, 0);
-                if (event.Key.Code == sf::Keyboard::C)
+                if (event.key.code == sf::Keyboard::Up)     view->move(0, -50);
+                if (event.key.code == sf::Keyboard::Down)   view->move(0, 50);
+                if (event.key.code == sf::Keyboard::Left)   view->move(-50, 0);
+                if (event.key.code == sf::Keyboard::Right)  view->move(50, 0);
+                if (event.key.code == sf::Keyboard::C)
                 {
                     shape = 1;
                 }
-                if (event.Key.Code == sf::Keyboard::B)
+                if (event.key.code == sf::Keyboard::B)
                 {
                     shape = 2;
                 }
-                if (event.Key.Code == sf::Keyboard::Escape)
+                if (event.key.code == sf::Keyboard::Escape)
                 {
                     shape = 0;
                 }
             }
-            if (event.Type == sf::Event::MouseWheelMoved)
+            if (event.type == sf::Event::MouseWheelMoved)
             {
                 if (!shape)
                 {
-                    if (event.MouseWheel.Delta == -1)   view->Zoom(1.1);
-                    else if (event.MouseWheel.Delta == 1)    view->Zoom(0.9);
+                    if (event.mouseWheel.delta == -1)   view->zoom(1.1);
+                    else if (event.mouseWheel.delta == 1)    view->zoom(0.9);
                 }
                 else
                 {
-                    if (event.MouseWheel.Delta == -1)
+                    if (event.mouseWheel.delta == -1)
                     {
                         if (shape == 1)
                         {
                             circleSize *= 1.1;
-                            circle = sf::Shape::Circle(0, 0, circleSize, sf::Color(255,0,0,130));
+                            circle.setRadius(circleSize);// = sf::Shape::Circle(0, 0, circleSize, sf::Color(255,0,0,130));
 
                         }
                         if (shape == 2)
                         {
                             rectSize *= 1.1;
-                            rect = sf::Shape::Rectangle(0,0, rectSize, rectSize, sf::Color(0,0,255,130));
-                            rect.SetOrigin(rectSize / 2.f, rectSize / 2.f);
+                            rect.setSize(sf::Vector2f(rectSize, rectSize));// = sf::Shape::Rectangle(0,0, rectSize, rectSize, sf::Color(0,0,255,130));
+                            rect.setOrigin(rectSize / 2.f, rectSize / 2.f);
                         }
                     }
-                    else if (event.MouseWheel.Delta == 1)
+                    else if (event.mouseWheel.delta == 1)
                     {
                         if (shape == 1)
                         {
                             circleSize *= 0.9;
-                            circle = sf::Shape::Circle(0, 0, circleSize, sf::Color(255,0,0,130));
+                            circle.setRadius(circleSize);// = sf::Shape::Circle(0, 0, circleSize, sf::Color(255,0,0,130));
 
                         }
                         if (shape == 2)
                         {
                             rectSize *= 0.9;
-                            rect = sf::Shape::Rectangle(0,0, rectSize, rectSize, sf::Color(0,0,255,130));
-                            rect.SetOrigin(rectSize / 2.f, rectSize / 2.f);
+                            rect.setSize(sf::Vector2f(rectSize, rectSize));//  =sf::Shape::Rectangle(0,0, rectSize, rectSize, sf::Color(0,0,255,130));
+                            rect.setOrigin(rectSize / 2.f, rectSize / 2.f);
                         }
                     }
                 }
@@ -148,9 +153,7 @@ int Screen::run (Scene& scene)
 
 
         // Update the simulation
-        //PhyEngine::getInstance()->update(time.GetElapsedTime() / 1000.f);
-        PhyEngine::getInstance()->update(1.f / 60.f);
-        //std::cout << time.GetElapsedTime() << std::endl;
+        PhyEngine::getInstance()->update(time.getElapsedTime().asSeconds());
 
         scene.update();
 
@@ -159,22 +162,22 @@ int Screen::run (Scene& scene)
 
         if (shape == 1)
         {
-            circle.SetPosition(mPosition.x, mPosition.y);
-            Draw(circle);
+            circle.setPosition(mPosition.x, mPosition.y);
+            draw(circle);
         }
         else if (shape == 2)
         {
-            rect.SetPosition(mPosition.x, mPosition.y);
-            Draw(rect);
+            rect.setPosition(mPosition.x, mPosition.y);
+            draw(rect);
         }
 
-        Draw(text);
+        draw(text);
 
 
         // Reset the timer
-        time.Reset();
+        time.restart();
 
-        Display();
+        display();
     }
 
     return EXIT_SUCCESS;

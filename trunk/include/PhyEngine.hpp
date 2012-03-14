@@ -56,6 +56,11 @@ class PhyEngine : public Singleton<PhyEngine>
         void init ();
 
         /*!
+        *   \brief Clear the world
+        */
+        void clear ();
+
+        /*!
         *   \brief Update the world
         *
         *   \param time The time elapsed since the last update
@@ -128,6 +133,7 @@ class PhyEngine : public Singleton<PhyEngine>
     protected :
 
         PhyEngine ();               //!< Constructor
+        ~PhyEngine();               //!< Destructor
 
         b2World* m_b2World;         //!< A Box2D world which will contain the physical scene
 

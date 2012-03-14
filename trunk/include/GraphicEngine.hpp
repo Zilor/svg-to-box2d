@@ -52,6 +52,11 @@ class GraphicEngine : public Singleton<GraphicEngine>
     public :
 
         /*!
+        *   \brief Clear the engine by deleting all the objects it owns
+        */
+        void clear();
+
+        /*!
         *   \brief Create a drawable rectangle.
         *
         *   \param xPosition The x position of the rectangle

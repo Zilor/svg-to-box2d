@@ -28,24 +28,43 @@
 #ifndef OBJECT_HPP_INCLUDED
 #define OBJECT_HPP_INCLUDED
 
+/*!
+*   \file Object.hpp
+*   \brief The object class header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
+
 #include "../Constants.hpp"
 
 class Drawable;
 class b2Body;
 class Screen;
 
+/*!
+*   \class Object
+*   \brief A dynamic object composed of a SFML drawable object and a physical Box2D object
+*/
+
 class Object
 {
     public :
 
+        /*!
+        *   \brief Constructor
+        */
         Object ();
 
+        /*!
+        *   \brief Destructor
+        */
         ~Object ();
 
-        const sf::Drawable* GetDrawable() const;
+        const sf::Drawable* GetShape() const;
 
         void SetBody (b2Body* body);
-        void SetDrawable (sf::Drawable* drawable);
+        void SetShape (sf::Drawable* drawable);
 
         void update ();
 

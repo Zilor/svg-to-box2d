@@ -26,24 +26,43 @@
 *-----------------------------------------------------------------------------*/
 
 #include "../include/PhyEngine.hpp"
+#include <SFML/System.hpp>
 
 PhyEngine::PhyEngine ()
 {
-    b2Vec2 gravity(0.0f, 9.8f);                     // Gravity of the world
-    m_b2World = new b2World(gravity);       // v2.2.1
-    m_b2World->SetAllowSleeping(true);   // Stop to calculate movement for non-moving objects
+    init();
+}
+
+PhyEngine::~PhyEngine ()
+{
+    clear();
+}
+
+void PhyEngine::clear ()
+{
+    if (m_b2World != NULL)
+    {
+        delete m_b2World;
+        m_b2World = NULL;
+    }
 }
 
 void PhyEngine::init()
 {
-    velocityIterations = 8;     // If your machine is powerfull enough, this is the best configuration
-    positionIterations = 3;
+    if (m_b2World == NULL)
+    {
+        b2Vec2 gravity(0.0f, 9.8f);                     // Gravity of the world
+        m_b2World = new b2World(gravity);       // v2.2.1
+        m_b2World->SetAllowSleeping(true);   // Stop to calculate movement for non-moving objects
+        velocityIterations = 8;     // If your machine is powerfull enough, this is the best configuration
+        positionIterations = 3;
+    }
 }
 
 void PhyEngine::update (float time)
 {
     // Update the world
-    m_b2World->Step(time, velocityIterations, positionIterations);
+    m_b2World->Step(0.01, velocityIterations, positionIterations);
     m_b2World->ClearForces();
 }
 
