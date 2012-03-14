@@ -14,6 +14,14 @@
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
+				<Linker>
+					<Add option="-lsfml-graphics-s-d" />
+					<Add option="-lsfml-window-s-d" />
+					<Add option="-lsfml-system-s-d" />
+					<Add option="-static" />
+					<Add option="-ltinyxml-s-d" />
+					<Add option="-lbox2d-s-d" />
+				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="SVG_Box2D" prefix_auto="1" extension_auto="1" />
@@ -25,6 +33,12 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
+					<Add option="-lsfml-graphics-s" />
+					<Add option="-lsfml-window-s" />
+					<Add option="-lsfml-system-s" />
+					<Add option="-static" />
+					<Add option="-ltinyxml-s" />
+					<Add option="-lbox2d-s" />
 				</Linker>
 			</Target>
 		</Build>
@@ -33,18 +47,13 @@
 			<Add option="-fexceptions" />
 			<Add option="-DSFML_STATIC" />
 			<Add directory="F:\Developpement\Box2D_v2.2.1" />
-			<Add directory="F:\Developpement\SFML_2.0_snapshot\include" />
+			<Add directory="F:\Developpement\SFML_git\include" />
 			<Add directory="F:\Developpement\Box2D_v2.2.1\Box2D" />
+			<Add directory="F:\Developpement\tinyxml" />
 		</Compiler>
 		<Linker>
-			<Add option="-lsfml-graphics-s" />
-			<Add option="-lsfml-window-s" />
-			<Add option="-lsfml-system-s" />
-			<Add option="-static" />
-			<Add option="-ltinyxml" />
-			<Add library="F:\Developpement\Box2D_v2.2.1\lib\libbox2d.a" />
-			<Add directory="F:\Developpement\SFML_2.0_snapshot\lib" />
-			<Add directory="F:\Developpement\tinyxml" />
+			<Add directory="F:\Developpement\SFML_git\lib" />
+			<Add directory="F:\Developpement\tinyxml\lib" />
 		</Linker>
 		<Unit filename="Constants.hpp" />
 		<Unit filename="include\GraphicEngine.hpp" />

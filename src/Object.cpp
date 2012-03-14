@@ -40,7 +40,7 @@ Object::~Object ()
     m_drawable = NULL;
 }
 
-const sf::Drawable* Object::GetDrawable () const
+const sf::Drawable* Object::GetShape () const
 {
     return m_drawable;
 }
@@ -53,7 +53,7 @@ void Object::SetBody(b2Body* body)
     }
 }
 
-void Object::SetDrawable(sf::Drawable* drawable)
+void Object::SetShape(sf::Drawable* drawable)
 {
     if (!m_drawable)
     {
@@ -64,11 +64,11 @@ void Object::SetDrawable(sf::Drawable* drawable)
 void Object::update ()
 {
     //m_drawable->SetOrigin(m_fWidth / 2.f + m_drawable->GetPosition().x, m_fHeight / 2.f + m_drawable->GetPosition().y);
-    m_drawable->SetPosition((m_body->GetPosition().x * 100.f), (m_body->GetPosition().y * 100.f));
-    m_drawable->SetRotation(m_body->GetAngle() * 180.f / PI);
+    dynamic_cast<sf::Transformable*>(m_drawable)->setPosition((m_body->GetPosition().x * 100.f), (m_body->GetPosition().y * 100.f));
+    dynamic_cast<sf::Transformable*>(m_drawable)->setRotation(m_body->GetAngle() * 180.f / PI);
 }
 
 void Object::draw (Screen& screen)
 {
-    screen.Draw(*m_drawable);
+    screen.draw(*m_drawable);
 }

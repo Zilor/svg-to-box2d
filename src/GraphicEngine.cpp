@@ -35,21 +35,22 @@ GraphicEngine::GraphicEngine()
 
 GraphicEngine::~GraphicEngine()
 {
-    std::for_each(m_vDrawable.begin(), m_vDrawable.end(), Delete());
+    clear();
+}
 
+void GraphicEngine::clear()
+{
+    std::for_each(m_vDrawable.begin(), m_vDrawable.end(), Delete());
 }
 
 sf::Drawable* GraphicEngine::addBoxDrawable(float xPosition, float yPosition, float xSize, float ySize)
 {
     // Creation of a shape
-    sf::Shape* rect = new sf::Shape();
+    sf::RectangleShape* rect = new sf::RectangleShape();
 
-    // adding the 4 points which compose the shape
-    rect->AddPoint(sf::Vector2f(xSize / 2.f, ySize / 2.f));
-    rect->AddPoint(sf::Vector2f(-xSize / 2.f, ySize / 2.f));
-    rect->AddPoint(sf::Vector2f(-xSize / 2.f, -ySize / 2.f));
-    rect->AddPoint(sf::Vector2f(xSize / 2.f, -ySize / 2.f));
-    rect->SetColor(sf::Color(0,0,255,255));
+    rect->setSize(sf::Vector2f(xSize, ySize));
+    rect->setPosition(xPosition, yPosition);
+    rect->setFillColor(sf::Color(0,0,255,255));
 
     // Add the shape to the list of drawable of the engine
     m_vDrawable.push_back(rect);
@@ -59,13 +60,11 @@ sf::Drawable* GraphicEngine::addBoxDrawable(float xPosition, float yPosition, fl
 
 sf::Drawable* GraphicEngine::addStaticBoxDrawable(float xPosition, float yPosition, float xSize, float ySize)
 {
-    sf::Shape* rect = new sf::Shape();
+    sf::RectangleShape* rect = new sf::RectangleShape();
 
-    rect->AddPoint(sf::Vector2f(xSize / 2.f, ySize / 2.f));
-    rect->AddPoint(sf::Vector2f(-xSize / 2.f, ySize / 2.f));
-    rect->AddPoint(sf::Vector2f(-xSize / 2.f, -ySize / 2.f));
-    rect->AddPoint(sf::Vector2f(xSize / 2.f, -ySize / 2.f));
-    rect->SetColor(sf::Color(255,255,255,255));
+    rect->setSize(sf::Vector2f(xSize, ySize));
+    rect->setPosition(xPosition, yPosition);
+    rect->setFillColor(sf::Color(255,0,255,255));
 
     m_vDrawable.push_back(rect);
 
@@ -74,8 +73,9 @@ sf::Drawable* GraphicEngine::addStaticBoxDrawable(float xPosition, float yPositi
 
 sf::Drawable* GraphicEngine::addCircleDrawable(float xPosition, float yPosition, float radius)
 {
-    sf::Shape* circle = new sf::Shape();
-    *circle = sf::Shape::Circle(0, 0, radius, sf::Color(255,0,0,255));
+    sf::CircleShape* circle = new sf::CircleShape();
+    circle->setRadius(radius);
+    circle->setPosition(xPosition, yPosition);
 
     m_vDrawable.push_back(circle);
 
@@ -84,12 +84,12 @@ sf::Drawable* GraphicEngine::addCircleDrawable(float xPosition, float yPosition,
 
 sf::Drawable* GraphicEngine::addStaticEdge(float xFirstPosition, float yFirstPosition, float xSecondPosition, float ySecondPosition)
 {
-    sf::Shape* edge = new sf::Shape();
+    sf::RectangleShape* edge = new sf::RectangleShape();
 
-    edge->AddPoint(sf::Vector2f(xFirstPosition, yFirstPosition));
-    edge->AddPoint(sf::Vector2f(xSecondPosition, ySecondPosition));
+//    edge->AddPoint(sf::Vector2f(xFirstPosition, yFirstPosition));
+//    edge->AddPoint(sf::Vector2f(xSecondPosition, ySecondPosition));
 
-    edge->SetColor(sf::Color(255,255,255,255));
+    //edge->setColor(sf::Color(255,255,255,255));
 
     m_vDrawable.push_back(edge);
 
@@ -98,40 +98,14 @@ sf::Drawable* GraphicEngine::addStaticEdge(float xFirstPosition, float yFirstPos
 
 sf::Drawable* GraphicEngine::addStaticPolyline(std::vector<std::pair<float,float> > vpCoord)
 {
-    sf::Shape* polyline = new sf::Shape();
+    sf::VertexArray* polyline = new sf::VertexArray();
 
     int size = vpCoord.size();
-
-    //polyline->AddPoint(vpCoord[0].first , vpCoord[0].second, sf::Color(255,255,255,0));
-    polyline->AddPoint(vpCoord[0].first , vpCoord[0].second, sf::Color(255,255,255,255));
-    polyline->SetPointOutlineColor(0, sf::Color(255,255,255,0));
-
     for (int i = 0; i < size; ++i)
     {
-        sf::Vector2f p1(vpCoord[i].first, vpCoord[i].second);
-        //sf::Vector2f p2(vpCoord[i+1].first, vpCoord[i+1].second);
-
-        /*sf::Vector2f normal;
-        //Compute normal
-        normal.x = p1.y - p2.y;
-        normal.y = p2.x - p1.x;
-        float len = std::sqrt(normal.x * normal.x + normal.y * normal.y);
-        normal.x /= len;
-        normal.y /= len;
-
-        normal *= 2.f;*/
-
-        polyline->AddPoint(p1 , sf::Color(255,255,255,255));
-        polyline->SetPointOutlineColor(i, sf::Color(255,255,255,255));
-        //if (i == vpCoord.size()-1)
-            //polyline->AddPoint(p2 , sf::Color(255,255,255,100));
+        (*polyline)[i].position = sf::Vector2f(vpCoord[i].first, vpCoord[i].second);
+        (*polyline)[i].color = sf::Color(255,255,255,255);
     }
-
-    polyline->AddPoint(vpCoord[size].first , vpCoord[size].second, sf::Color(255,255,255,255));
-    //polyline->SetPointOutlineColor(size+2, sf::Color(255,255,255,0));
-    //polyline->AddPoint(vpCoord[size].first , vpCoord[size].second, sf::Color(255,255,255,0));
-    polyline->EnableFill(false);
-    polyline->SetOutlineThickness(2.0f);
 
     m_vDrawable.push_back(polyline);
 
@@ -144,6 +118,6 @@ void GraphicEngine::draw (Screen& screen)
     int size = m_vDrawable.size();
     for (int i = 0; i < size; ++i)
     {
-        screen.Draw(*m_vDrawable[i]);
+        screen.draw(*m_vDrawable[i]);
     }
 }
