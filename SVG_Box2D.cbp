@@ -54,6 +54,7 @@
 		<Linker>
 			<Add directory="F:\Developpement\SFML_git\lib" />
 			<Add directory="F:\Developpement\tinyxml\lib" />
+			<Add directory="F:\Developpement\Box2D_v2.2.1\lib" />
 		</Linker>
 		<Unit filename="Constants.hpp" />
 		<Unit filename="include\GraphicEngine.hpp" />
