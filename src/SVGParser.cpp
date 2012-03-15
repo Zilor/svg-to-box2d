@@ -25,6 +25,13 @@
 *
 *-----------------------------------------------------------------------------*/
 
+/*!
+*   \file SVGParser.cpp
+*   \brief The SVG parser source
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../include/SVGParser.hpp"
 
 SVGParser::SVGParser ()

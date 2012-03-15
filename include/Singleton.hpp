@@ -1,6 +1,13 @@
 #ifndef SINGLETON_HPP_INCLUDED
 #define SINGLETON_HPP_INCLUDED
 
+/*!
+*   \file Singleton.hpp
+*   \brief The singleton template header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../Constants.hpp"
 
 template <typename T>

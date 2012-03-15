@@ -61,20 +61,35 @@ class Object
         */
         ~Object ();
 
-        const sf::Drawable* GetShape() const;
+        /*!
+        *   \brief Getter on the Drawable object
+        *
+        *   \return A pointer on a sf:Drawable
+        */
+        const sf::Drawable* getDrawable() const;
 
-        void SetBody (b2Body* body);
-        void SetShape (sf::Drawable* drawable);
+        void setBody (b2Body* body);
+        void setDrawable (sf::Drawable* drawable);
+        void setType (PHYSIC_TYPE type);
 
+        /*!
+        *   \brief update the position of the object
+        */
         void update ();
 
+        /*!
+        *   \brief Draw the object on the given render target
+        *
+        *   \param screen The render target on which the object should be draw
+        */
         void draw (Screen& screen);
 
 
     private :
 
-        b2Body* m_body;
-        sf::Drawable* m_drawable;
+        b2Body* m_body;             //!< A pointer to the physical object bounded to this object
+        sf::Drawable* m_drawable;   //!< A pointer to the drawable object bounded to this object
+        PHYSIC_TYPE m_type;         //!< A flag to define if the position of the drawalbe should be updated
 
 };
 

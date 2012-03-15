@@ -28,6 +28,13 @@
 #ifndef SCENE_HPP_INCLUDED
 #define SCENE_HPP_INCLUDED
 
+/*!
+*   \file Scene.hpp
+*   \brief The scene header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../Constants.hpp"
 
 class Object;

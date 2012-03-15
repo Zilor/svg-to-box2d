@@ -25,6 +25,13 @@
 *
 *-----------------------------------------------------------------------------*/
 
+/*!
+*   \file Scene.cpp
+*   \brief The scene source
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../include/Scene.hpp"
 #include "../include/Object.hpp"
 
@@ -116,7 +123,7 @@ void Scene::addRect(float xPosition, float yPosition, float xSize, float ySize)
     // We create a new object
     Object* object = new Object();
     // We ask to the physic engine to create a b2Body
-    object->SetBody(PhyEngine::getInstance()->addBox(
+    object->setBody(PhyEngine::getInstance()->addBox(
                                                      xPosition,
                                                      yPosition,
                                                      xSize,
@@ -124,7 +131,7 @@ void Scene::addRect(float xPosition, float yPosition, float xSize, float ySize)
                     );
 
     // We ask to the graphic engine to create a drawable shape
-    object->SetShape(GraphicEngine::getInstance()->addBoxDrawable(
+    object->setDrawable(GraphicEngine::getInstance()->addBoxDrawable(
                                                                  xPosition,
                                                                  yPosition,
                                                                  xSize,
@@ -132,53 +139,55 @@ void Scene::addRect(float xPosition, float yPosition, float xSize, float ySize)
                       );
 
     // Let's add this object to the list of objects of the list
+    object->setType(DYNAMIC);
     m_vObject.push_back(object);
 }
 
 void Scene::addStaticRect(float xPosition, float yPosition, float xSize, float ySize)
 {
     Object* object = new Object();
-    object->SetBody(PhyEngine::getInstance()->addStaticBox(
+    object->setBody(PhyEngine::getInstance()->addStaticBox(
                                                      xPosition,
                                                      yPosition,
                                                      xSize,
                                                      ySize)
                     );
 
-    object->SetShape(GraphicEngine::getInstance()->addStaticBoxDrawable(
+    object->setDrawable(GraphicEngine::getInstance()->addStaticBoxDrawable(
                                                                  xPosition,
                                                                  yPosition,
                                                                  xSize,
                                                                  ySize)
                       );
 
+    object->setType(DYNAMIC);
     m_vObject.push_back(object);
 }
 
 void Scene::addCircle (float xPosition, float yPosition, float radius)
 {
     Object* object = new Object();
-    object->SetBody(PhyEngine::getInstance()->addCircle(
+    object->setBody(PhyEngine::getInstance()->addCircle(
                                                      xPosition,
                                                      yPosition,
                                                      radius)
                     );
 
-    object->SetShape(GraphicEngine::getInstance()->addCircleDrawable(
+    object->setDrawable(GraphicEngine::getInstance()->addCircleDrawable(
                                                                  xPosition,
                                                                  yPosition,
                                                                  radius)
                       );
 
-
+    object->setType(STATIC);
     m_vObject.push_back(object);
 }
 
 void Scene::addLine (std::vector<std::pair<float, float> > vpCoord)
 {
     Object* object = new Object();
-    object->SetBody(PhyEngine::getInstance()->addChainShape(vpCoord));
-    object->SetShape(GraphicEngine::getInstance()->addStaticPolyline(vpCoord));
+    object->setBody(PhyEngine::getInstance()->addChainShape(vpCoord));
+    object->setDrawable(GraphicEngine::getInstance()->addStaticPolyline(vpCoord));
 
     m_vObject.push_back(object);
 }

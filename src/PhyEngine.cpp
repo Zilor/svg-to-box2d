@@ -25,6 +25,13 @@
 *
 *-----------------------------------------------------------------------------*/
 
+/*!
+*   \file PhyEngine.cpp
+*   \brief The physic engine source
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../include/PhyEngine.hpp"
 #include <SFML/System.hpp>
 

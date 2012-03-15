@@ -25,6 +25,13 @@
 *
 *-----------------------------------------------------------------------------*/
 
+/*!
+*   \file Object.cpp
+*   \brief The object source
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../include/Object.hpp"
 #include "../include/Screen.hpp"
 
@@ -40,12 +47,12 @@ Object::~Object ()
     m_drawable = NULL;
 }
 
-const sf::Drawable* Object::GetShape () const
+const sf::Drawable* Object::getDrawable () const
 {
     return m_drawable;
 }
 
-void Object::SetBody(b2Body* body)
+void Object::setBody(b2Body* body)
 {
     if (!m_body)
     {
@@ -53,7 +60,7 @@ void Object::SetBody(b2Body* body)
     }
 }
 
-void Object::SetShape(sf::Drawable* drawable)
+void Object::setDrawable(sf::Drawable* drawable)
 {
     if (!m_drawable)
     {
@@ -61,11 +68,22 @@ void Object::SetShape(sf::Drawable* drawable)
     }
 }
 
+void Object::setType (PHYSIC_TYPE type)
+{
+    if (!m_type)
+    {
+        m_type = type;
+    }
+}
+
 void Object::update ()
 {
     //m_drawable->SetOrigin(m_fWidth / 2.f + m_drawable->GetPosition().x, m_fHeight / 2.f + m_drawable->GetPosition().y);
-//    dynamic_cast<sf::Transformable*>(m_drawable)->setPosition((m_body->GetPosition().x * 100.f), (m_body->GetPosition().y * 100.f));
-//    dynamic_cast<sf::Transformable*>(m_drawable)->setRotation(m_body->GetAngle() * 180.f / PI);
+    if (m_type)
+    {
+        dynamic_cast<sf::Transformable*>(m_drawable)->setPosition((m_body->GetPosition().x * 100.f), (m_body->GetPosition().y * 100.f));
+        dynamic_cast<sf::Transformable*>(m_drawable)->setRotation(m_body->GetAngle() * 180.f / PI);
+    }
 }
 
 void Object::draw (Screen& screen)

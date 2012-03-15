@@ -25,6 +25,13 @@
 *
 *-----------------------------------------------------------------------------*/
 
+/*!
+*   \file Screen.cpp
+*   \brief The screen source
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../include/Screen.hpp"
 #include "../include/Object.hpp"
 
