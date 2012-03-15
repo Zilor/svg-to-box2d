@@ -30,7 +30,7 @@
 
 PhyEngine::PhyEngine ()
 {
-    init();
+    //init();
 }
 
 PhyEngine::~PhyEngine ()
@@ -49,14 +49,14 @@ void PhyEngine::clear ()
 
 void PhyEngine::init()
 {
-    if (m_b2World == NULL)
-    {
+    //if (m_b2World == NULL)
+    //{
         b2Vec2 gravity(0.0f, 9.8f);                     // Gravity of the world
         m_b2World = new b2World(gravity);       // v2.2.1
         m_b2World->SetAllowSleeping(true);   // Stop to calculate movement for non-moving objects
         velocityIterations = 8;     // If your machine is powerfull enough, this is the best configuration
         positionIterations = 3;
-    }
+    //}
 }
 
 void PhyEngine::update (float time)

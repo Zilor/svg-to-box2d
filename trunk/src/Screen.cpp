@@ -46,10 +46,12 @@ int Screen::run (Scene& scene)
     sf::CircleShape circle;
     circle.setRadius(circleSize);
     circle.setFillColor(sf::Color(255,0,0,130));
+    circle.setOrigin(circleSize, circleSize);
 
     sf::RectangleShape rect;
     rect.setSize(sf::Vector2f(rectSize, rectSize));
     rect.setFillColor(sf::Color(0,0,255,130));
+    rect.setOrigin(rectSize / 2.f, rectSize / 2.f);
 
     rect.setOrigin(rectSize / 2.f, rectSize / 2.f);
 
@@ -63,6 +65,12 @@ int Screen::run (Scene& scene)
     text.setScale(0.5, 0.5);
 
     sf::Event event;
+
+    sf::VertexArray lines(sf::LinesStrip, 4);
+ lines[0].position = sf::Vector2f(10, 0);
+ lines[1].position = sf::Vector2f(20, 0);
+ lines[2].position = sf::Vector2f(30, 5);
+ lines[3].position = sf::Vector2f(40, 2);
 
     sf::Clock time;
     while (isOpen())
@@ -158,7 +166,9 @@ int Screen::run (Scene& scene)
         scene.update();
 
         // Draw the scene
+        //std::cout << "predraw" << std::endl;
         GraphicEngine::getInstance()->draw(*this);
+        //std::cout << "postdraw" << std::endl;
 
         if (shape == 1)
         {
@@ -173,7 +183,7 @@ int Screen::run (Scene& scene)
 
         draw(text);
 
-
+draw(lines);
         // Reset the timer
         time.restart();
 
