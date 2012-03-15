@@ -49,6 +49,7 @@ sf::Drawable* GraphicEngine::addBoxDrawable(float xPosition, float yPosition, fl
     sf::RectangleShape* rect = new sf::RectangleShape();
 
     rect->setSize(sf::Vector2f(xSize, ySize));
+    rect->setOrigin(xSize / 2.f, ySize / 2.f);
     rect->setPosition(xPosition, yPosition);
     rect->setFillColor(sf::Color(0,0,255,255));
 
@@ -63,8 +64,9 @@ sf::Drawable* GraphicEngine::addStaticBoxDrawable(float xPosition, float yPositi
     sf::RectangleShape* rect = new sf::RectangleShape();
 
     rect->setSize(sf::Vector2f(xSize, ySize));
+    rect->setOrigin(xSize / 2.f, ySize / 2.f);
     rect->setPosition(xPosition, yPosition);
-    rect->setFillColor(sf::Color(255,0,255,255));
+    rect->setFillColor(sf::Color(255,255,255,255));
 
     m_vDrawable.push_back(rect);
 
@@ -75,7 +77,9 @@ sf::Drawable* GraphicEngine::addCircleDrawable(float xPosition, float yPosition,
 {
     sf::CircleShape* circle = new sf::CircleShape();
     circle->setRadius(radius);
+    circle->setOrigin(radius, radius);
     circle->setPosition(xPosition, yPosition);
+    circle->setFillColor(sf::Color(255,0,0,255));
 
     m_vDrawable.push_back(circle);
 
@@ -86,11 +90,6 @@ sf::Drawable* GraphicEngine::addStaticEdge(float xFirstPosition, float yFirstPos
 {
     sf::RectangleShape* edge = new sf::RectangleShape();
 
-//    edge->AddPoint(sf::Vector2f(xFirstPosition, yFirstPosition));
-//    edge->AddPoint(sf::Vector2f(xSecondPosition, ySecondPosition));
-
-    //edge->setColor(sf::Color(255,255,255,255));
-
     m_vDrawable.push_back(edge);
 
     return edge;
@@ -98,15 +97,14 @@ sf::Drawable* GraphicEngine::addStaticEdge(float xFirstPosition, float yFirstPos
 
 sf::Drawable* GraphicEngine::addStaticPolyline(std::vector<std::pair<float,float> > vpCoord)
 {
-    sf::VertexArray* polyline = new sf::VertexArray();
-
     int size = vpCoord.size();
+    sf::VertexArray* polyline = new sf::VertexArray(sf::LinesStrip, size);
     for (int i = 0; i < size; ++i)
     {
-        (*polyline)[i].position = sf::Vector2f(vpCoord[i].first, vpCoord[i].second);
-        (*polyline)[i].color = sf::Color(255,255,255,255);
+        sf::Vertex vertex;
+        vertex.position = sf::Vector2f(vpCoord[i].first, vpCoord[i].second);
+        polyline->append(vertex);
     }
-
     m_vDrawable.push_back(polyline);
 
     return polyline;
