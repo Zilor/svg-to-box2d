@@ -28,6 +28,13 @@
 #ifndef SCREEN_HPP_INCLUDED
 #define SCREEN_HPP_INCLUDED
 
+/*!
+*   \file Screen.hpp
+*   \brief The screen header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../Constants.hpp"
 #include "Scene.hpp"
 

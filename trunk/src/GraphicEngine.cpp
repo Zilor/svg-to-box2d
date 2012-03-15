@@ -25,6 +25,13 @@
 *
 *-----------------------------------------------------------------------------*/
 
+/*!
+*   \file GraphicEngine.cpp
+*   \brief The graphic engine source
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../include/GraphicEngine.hpp"
 #include "../include/Screen.hpp"
 

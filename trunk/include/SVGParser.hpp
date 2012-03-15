@@ -28,6 +28,13 @@
 #ifndef SVGPARSER_HPP_INCLUDED
 #define SVGPARSER_HPP_INCLUDED
 
+/*!
+*   \file SVGParser.hpp
+*   \brief The SVG parser header
+*   \version 0.1
+*   \author Bastien (Bigz) Cramillet
+*/
+
 #include "../Constants.hpp"
 #include "Singleton.hpp"
 

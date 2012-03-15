@@ -124,9 +124,9 @@ class GraphicEngine : public Singleton<GraphicEngine>
 
     protected :
 
-        GraphicEngine ();
+        GraphicEngine ();                       //!< Constructor
 
-        ~GraphicEngine ();
+        ~GraphicEngine ();                      //!< Destructor
 
         std::vector<sf::Drawable*> m_vDrawable; //!< A vector of pointer to drawable objects
 };

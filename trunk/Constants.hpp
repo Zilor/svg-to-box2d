@@ -76,6 +76,8 @@ struct ObjectData
     std::vector<LineData*> vLineData;
 };
 
+enum PHYSIC_TYPE {STATIC,DYNAMIC};
+
 // Foncteur servant à libérer un pointeur - applicable à n'importe quel type
 struct Delete
 {
