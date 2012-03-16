@@ -70,16 +70,12 @@ void Object::setDrawable(sf::Drawable* drawable)
 
 void Object::setType (PHYSIC_TYPE type)
 {
-    if (!m_type)
-    {
-        m_type = type;
-    }
+    m_type = type;
 }
 
 void Object::update ()
 {
-    //m_drawable->SetOrigin(m_fWidth / 2.f + m_drawable->GetPosition().x, m_fHeight / 2.f + m_drawable->GetPosition().y);
-    if (m_type)
+    if (m_type == DYNAMIC)
     {
         dynamic_cast<sf::Transformable*>(m_drawable)->setPosition((m_body->GetPosition().x * 100.f), (m_body->GetPosition().y * 100.f));
         dynamic_cast<sf::Transformable*>(m_drawable)->setRotation(m_body->GetAngle() * 180.f / PI);

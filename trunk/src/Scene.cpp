@@ -179,7 +179,7 @@ void Scene::addCircle (float xPosition, float yPosition, float radius)
                                                                  radius)
                       );
 
-    object->setType(STATIC);
+    object->setType(DYNAMIC);
     m_vObject.push_back(object);
 }
 
@@ -188,6 +188,7 @@ void Scene::addLine (std::vector<std::pair<float, float> > vpCoord)
     Object* object = new Object();
     object->setBody(PhyEngine::getInstance()->addChainShape(vpCoord));
     object->setDrawable(GraphicEngine::getInstance()->addStaticPolyline(vpCoord));
+    object->setType(STATIC);
 
     m_vObject.push_back(object);
 }
