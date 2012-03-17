@@ -56,7 +56,7 @@ class Scene
 
         void addLine (std::vector<std::pair<float, float> > vpCoord);
 
-        void createFromFile(std::string sFile);
+        bool createFromFile(std::string sFile);
 
         void update();
 

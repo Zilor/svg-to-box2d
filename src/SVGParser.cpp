@@ -41,15 +41,34 @@ SVGParser::SVGParser ()
 
 SVGParser::~SVGParser ()
 {
+    clear();
+}
+
+void SVGParser::clear()
+{
     if (!m_objectData.vRectData.empty())
     {
         std::for_each(m_objectData.vRectData.begin(), m_objectData.vRectData.end(), Delete());
+        m_objectData.vRectData.clear();
+    }
+    if (!m_objectData.vCircleData.empty())
+    {
         std::for_each(m_objectData.vCircleData.begin(), m_objectData.vCircleData.end(), Delete());
+        m_objectData.vCircleData.clear();
+    }
+    if (!m_objectData.vLineData.empty())
+    {
         std::for_each(m_objectData.vLineData.begin(), m_objectData.vLineData.end(), Delete());
+        m_objectData.vLineData.clear();
     }
 }
 
-ObjectData& SVGParser::parse (std::string sFile)
+ObjectData& SVGParser::getObjectData()
+{
+    return m_objectData;
+}
+
+bool SVGParser::parse (std::string sFile)
 {
     // Loading of the SVG file
     TiXmlDocument doc(sFile.c_str());
@@ -57,6 +76,7 @@ ObjectData& SVGParser::parse (std::string sFile)
     {
         std::cerr << "error during loading of the following file :" << std::endl;
         std::cerr << "error #" << doc.ErrorId() << " : " << doc.ErrorDesc() << std::endl;
+        return false;
     }
 
 
@@ -126,7 +146,12 @@ ObjectData& SVGParser::parse (std::string sFile)
                     {
                         currentChar = *it;
 
-                        if (currentChar == "M")
+                        if (currentChar == "m")
+                        {
+                            relative = true;
+                            currentString = "";
+                        }
+                        else if (currentChar == "M")
                         {
                             relative = false;
                             currentString = "";
@@ -219,5 +244,5 @@ ObjectData& SVGParser::parse (std::string sFile)
 
             delete object;
 
-    return m_objectData;
+    return true;
 }

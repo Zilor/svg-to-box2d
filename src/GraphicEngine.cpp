@@ -48,6 +48,7 @@ GraphicEngine::~GraphicEngine()
 void GraphicEngine::clear()
 {
     std::for_each(m_vDrawable.begin(), m_vDrawable.end(), Delete());
+    m_vDrawable.clear();
 }
 
 sf::Drawable* GraphicEngine::addBoxDrawable(float xPosition, float yPosition, float xSize, float ySize)
@@ -105,7 +106,7 @@ sf::Drawable* GraphicEngine::addStaticEdge(float xFirstPosition, float yFirstPos
 sf::Drawable* GraphicEngine::addStaticPolyline(std::vector<std::pair<float,float> > vpCoord)
 {
     int size = vpCoord.size();
-    sf::VertexArray* polyline = new sf::VertexArray(sf::LinesStrip, size);
+    sf::VertexArray* polyline = new sf::VertexArray(sf::LinesStrip, 0);
     for (int i = 0; i < size; ++i)
     {
         sf::Vertex vertex;
