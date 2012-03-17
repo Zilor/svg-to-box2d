@@ -98,22 +98,22 @@ b2Body* PhyEngine::addBox(float xPosition, float yPosition, float xSize, float y
 b2Body* PhyEngine::addStaticBox(float xPosition, float yPosition, float xSize, float ySize)
 {
 	// Creation of a static rectangle
-    b2BodyDef bodyDef;                          // On déclare le body
+    b2BodyDef bodyDef;
     bodyDef.position.Set(xPosition / 100.f,
-                         yPosition / 100.f);           // Position du corps
-    bodyDef.angle = 0.f;                        // On donne un peu d'angle pour la simulation
-    b2Body* body = m_b2World->CreateBody(&bodyDef);  // On demande au body factory de créer le body
+                         yPosition / 100.f);
+    bodyDef.angle = 0.f;
+    b2Body* body = m_b2World->CreateBody(&bodyDef);
 
-    b2PolygonShape dynamicBox;                  // On déclare le shape du body
+    b2PolygonShape dynamicBox;
     dynamicBox.SetAsBox((xSize / 200.f) - 0.01,
-                        (ySize / 200.f) - 0.01);            // On définit la taille et la forme en cube du shape
+                        (ySize / 200.f) - 0.01);
 
-    b2FixtureDef fixtureDef;                    // On déclaire la fixture du body
-    fixtureDef.shape = &dynamicBox;             // On applique le shape à la fixture
-    fixtureDef.density = 1.0f;                  // On définit la densité de notre body
-    fixtureDef.friction = 0.3f;                 // On définit la friction de notre body
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicBox;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
 
-    body->CreateFixture(&fixtureDef);           // On associe la fixture à notre body
+    body->CreateFixture(&fixtureDef);
 
     return body;
 }
@@ -121,24 +121,23 @@ b2Body* PhyEngine::addStaticBox(float xPosition, float yPosition, float xSize, f
 
 b2Body* PhyEngine::addCircle (float xPosition, float yPosition, float radius)
 {
-    // Création d'un objet dynamique : un simple cube qui tombe
-    b2BodyDef bodyDef;                          // On déclare le body
-    bodyDef.type = b2_dynamicBody;              // Le corps est dynamique
+    b2BodyDef bodyDef;
+    bodyDef.type = b2_dynamicBody;
     bodyDef.position.Set(xPosition / 100.f,
-                         yPosition / 100.f);           // Position du corps
-    bodyDef.angle = 0.f;                        // On donne un peu d'angle pour la simulation
-    b2Body* body = m_b2World->CreateBody(&bodyDef);  // On demande au body factory de créer le body
+                         yPosition / 100.f);
+    bodyDef.angle = 0.f;
+    b2Body* body = m_b2World->CreateBody(&bodyDef);
 
-    b2CircleShape dynamicCircle;                  // On déclare le shape du body
+    b2CircleShape dynamicCircle;
     dynamicCircle.m_radius = radius / 100.f;
 
-    b2FixtureDef fixtureDef;                    // On déclaire la fixture du body
-    fixtureDef.shape = &dynamicCircle;             // On applique le shape à la fixture
-    fixtureDef.density = 1.0f;                  // On définit la densité de notre body
-    fixtureDef.friction = 0.3f;                 // On définit la friction de notre body
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &dynamicCircle;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
     fixtureDef.restitution = 0.3f;
 
-    body->CreateFixture(&fixtureDef);           // On associe la fixture à notre body
+    body->CreateFixture(&fixtureDef);
 
 
     return body;
@@ -159,21 +158,19 @@ b2Body* PhyEngine::addChainShape (std::vector<std::pair<float,float> > vpCoord)
                       vpCoord[i].second / 100.f);
     }
 
-    // Création d'un objet dynamique : un simple cube qui tombe
-    b2BodyDef bodyDef;                          // On déclare le body
-    //bodyDef.position.Set(xPosition / 100.f, yPosition / 100.f);           // Position du corps
-    bodyDef.angle = 0.f;                        // On donne un peu d'angle pour la simulation
-    b2Body* body = m_b2World->CreateBody(&bodyDef);  // On demande au body factory de créer le body
+    b2BodyDef bodyDef;
+    bodyDef.angle = 0.f;
+    b2Body* body = m_b2World->CreateBody(&bodyDef);
 
-    b2ChainShape staticChain;                  // On déclare le shape du body
+    b2ChainShape staticChain;
     staticChain.CreateChain(vCoord, size);
 
-    b2FixtureDef fixtureDef;                    // On déclaire la fixture du body
-    fixtureDef.shape = &staticChain;             // On applique le shape à la fixture
-    fixtureDef.density = 1.0f;                  // On définit la densité de notre body
-    fixtureDef.friction = 0.3f;                 // On définit la friction de notre body
+    b2FixtureDef fixtureDef;
+    fixtureDef.shape = &staticChain;
+    fixtureDef.density = 1.0f;
+    fixtureDef.friction = 0.3f;
 
-    body->CreateFixture(&fixtureDef);           // On associe la fixture à notre body
+    body->CreateFixture(&fixtureDef);
 
     return body;
 }
