@@ -76,10 +76,12 @@ void Scene::draw (Screen& screen)
     }
 }
 
-void Scene::createFromFile(std::string sFile)
+bool Scene::createFromFile(std::string sFile)
 {
     // Parsing of the svg file
-    ObjectData objectData = SVGParser::getInstance()->parse(sFile);
+    if (!SVGParser::getInstance()->parse(sFile)) return false;
+
+    ObjectData objectData = SVGParser::getInstance()->getObjectData();
 
     // Let's create all the rectangles
     if (!objectData.vRectData.empty())
@@ -116,6 +118,7 @@ void Scene::createFromFile(std::string sFile)
             addLine(objectData.vLineData[i]->vpCoord);
         }
     }
+    return true;
 }
 
 void Scene::addRect(float xPosition, float yPosition, float xSize, float ySize)

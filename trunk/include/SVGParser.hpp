@@ -44,8 +44,9 @@ class SVGParser : public Singleton<SVGParser>
 
     public :
 
-
-        ObjectData& parse (std::string sFile);
+        void clear();
+        ObjectData& getObjectData();
+        bool parse (std::string sFile);
 
     protected :
 

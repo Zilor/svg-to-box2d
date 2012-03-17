@@ -29,6 +29,8 @@
 #include "Constants.hpp"
 #include "include/Screen.hpp"
 
+// TODO (Bigz#1#): permettre de générer une nouvelle scène après avoir quitter la première\
+
 int main()
 {
     std::string sAnswer = "";
@@ -39,14 +41,20 @@ int main()
     {
         PhyEngine::getInstance()->init();
 
-        Screen screen;
         Scene scene;
-        scene.createFromFile(sAnswer);
+        if(scene.createFromFile(sAnswer))
+        {
+            Screen screen;
+            screen.run(scene);
 
-        screen.run(scene);
-
-        GraphicEngine::getInstance()->clear();
-        PhyEngine::getInstance()->clear();
+            SVGParser::getInstance()->clear();
+            GraphicEngine::getInstance()->clear();
+            PhyEngine::getInstance()->clear();
+        }
+        else
+        {
+            std::cout << "Impossible to parse this file" << std::endl;
+        }
 
         std::cout << "Which SVG file do you want to load ?" << std::endl;
         std::cin >> sAnswer;
