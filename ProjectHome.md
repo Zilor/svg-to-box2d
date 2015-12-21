@@ -1,0 +1,1 @@
+A first approach of parsing vector draws saved in SVG files in order to recreate the draw with a Box2D and SFML scene.
